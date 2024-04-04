@@ -37,6 +37,34 @@ def printHeap(arr, N):
     for i in range(N):
         print(arr[i], end=" ")
     print()
+
+def insert_heap(arr,N,value):
+    N = N+1
+    arr[N] = value
+    i = N
+    while(i>1):
+        parent = i//2
+        if arr[parent] < arr[i]:
+            arr[i], arr[parent] = arr[parent], arr[i]
+            i = parent
+        else:
+            return
+
+def delete_heap(arr,N):
+    arr[1] = arr[N]
+    N=N-1
+    i = 1
+    while(i<N):
+        left = arr[i*2]
+        right = arr[i*2 + 1]
+        
+        largest = i*2 if left>right else i*2+1
+    if arr[i] < arr[largest]:
+        arr[i], arr[largest] = arr[largest], arr[i]
+        i = largest
+    else:
+        return
+            
  
 if __name__ == '__main__':
  
